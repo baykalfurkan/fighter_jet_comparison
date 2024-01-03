@@ -11,7 +11,7 @@ nesil1   = ['Me 262','He 162','Me 162','Gloster Meteor','F-86','F-89','F-94','FH
 
 liste = [nesil5 , nesil4_5 , nesil4 , nesil3 , nesil2 , nesil1 ]   
 
-print("* Savas ucagi karsilastirma yazilimina hosgeldiniz. * \n* Listeden iki ucagi secerek karsilastirabilirsin. *\n* ( Karsilastirmalar ucak ozelliklerine gore yapilmistir! ) *\n \nUcaklar;")
+print("* Savas ucagi karsilastirma yazilimina hosgeldiniz. * \n* Listeden iki ucagi secerek karsilastirabilirsin. *\n* ( Karsilastirmalar ucaklarin nesillerine gore yapilmistir! ) *\n \nUcaklar;")
 
 # Listeleleri karistirma
 tum_elemanlar = []
