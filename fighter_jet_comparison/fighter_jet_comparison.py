@@ -11,9 +11,9 @@ nesil1   = ['Me 262','He 162','Me 162','Gloster Meteor','F-86','F-89','F-94','FH
 
 liste = [nesil5 , nesil4_5 , nesil4 , nesil3 , nesil2 , nesil1 ]   
 
-print("* Savas ucagi karsilastirma yazilimina hosgeldiniz. * \n* Listeden iki ucagi secerek karsilastirabilirsin. *\n* ( Karsilastirmalar ucaklarin nesillerine gore yapilmistir! ) *\n \nUcaklar;")
+print("* Welcome to fighter jet comparison software. * \n* You can compare two fighter jets by selecting them from the list. *\n* ( Comparisons are based on aircraft generations! ) *\n \nFighter jets;")
 
-# Listeleleri karistirma
+# Shuffling lists
 tum_elemanlar = []
 for listeq in liste:
     tum_elemanlar.extend(listeq)
@@ -37,22 +37,22 @@ def karsilastirma (ucak1,ucak2):
         ucak2n = next((nesiller[nesil] for nesil in nesiller if ucak2 in nesil), None)
          
         if ucak1n == None or ucak2n == None:
-            print("\nHatali deger girdiniz! \n--------------------------------------------------")        
+            print("\nYou entered a wrong value! \n--------------------------------------------------")        
         elif ucak1n == ucak2n:
-           print("\n>> Sonuc: Ucaklarin ozellikleri benzer , pilota bagli << \n---------------------------------------------------------------------------------------------")
+           print("\n>> Result: The characteristics of the planes are similar, it depends on the pilot << \n---------------------------------------------------------------------------------------------")
         elif ucak1n > ucak2n:
            if secim == "2":
-               print("\n>> Kazandiniz! ")
-           print("\n>> Sonuc: {} kazanir <<\n---------------------------------------------------------------------------------------------".format(ucak1))
+               print("\n>> You won! ")
+           print("\n>> Result: {} wins <<\n---------------------------------------------------------------------------------------------".format(ucak1))
         elif ucak1n < ucak2n:
            if secim == "2":
-               print("\n>> Kaybettiniz! ")
-           print("\n>> Sonuc: {} kazanir << \n---------------------------------------------------------------------------------------------".format(ucak2))
+               print("\n>> You lost! ")
+           print("\n>> Result: {} wins << \n---------------------------------------------------------------------------------------------".format(ucak2))
         else:
-            print("\nHatali deger girdiniz! \n--------------------------------------------------")    
+            print("\nYou entered a wrong value! \n--------------------------------------------------")    
 
 
-#Dongu
+#Loop
 secim = 0
 while True:
     
@@ -66,17 +66,17 @@ while True:
     }
     
 
-    #Kullanicinin sectigi ucagýn neslini atama islemi
+    #The process of assigning the generation of the aircraft selected by the user
     if secim == 0 or secim =="":
         print("\n")
-        ucak1 = str(input("Birinci ucak: "))
-        ucak2 = str(input("Ikinci ucak: "))
+        ucak1 = str(input("First fighter jet: "))
+        ucak2 = str(input("Second fighter jet: "))
         karsilastirma(ucak1,ucak2)
                  
 
-    #Rastgele ucak secip neslini atama islemi
+    #Randomly select and compare fighter jets
     if secim == "1":
-        print("---------------------------------------------------------------------------------------------\nRastgele seciliyor..\n")
+        print("---------------------------------------------------------------------------------------------\nRandomly selected..\n")
         b = random.randrange(0,6)      
         c = random.randrange(0,6) 
         d = random.randrange(0,17) 
@@ -94,13 +94,13 @@ while True:
                 break     
             else:
                 e = random.randrange(0,17) 
-        print("Secilen birinci ucak: {} ".format(r_ucak1n[d]))
-        print("Secilen ikinci ucak: {} ".format(r_ucak2n[e]))
+        print("Selected first fighter jet: {} ".format(r_ucak1n[d]))
+        print("Selected second fighter jet: {} ".format(r_ucak2n[e]))
         t = r_ucak1n[d]
         k = r_ucak2n[e]
         karsilastirma(t,k) 
         
-    #Pc ile vs
+    #For comparison with PC
     if secim == "2":
        k_ucaklari = [1,2,3]
        pc_ucaklari = [1,2,3]
@@ -118,77 +118,77 @@ while True:
            f += 1
          
        print("---------------------------------------------------------------------------------------------\n")    
-       print("Secim yapacaginiz liste : {}".format(k_ucaklari))
-       print("\nBilgisayarin sececegi liste : {}".format(pc_ucaklari))
-       k_secim = input("\nListeden bir ucak seciniz : ")
+       print("The list you will choose from : {}".format(k_ucaklari))
+       print("\nList for the computer to choose from : {}".format(pc_ucaklari))
+       k_secim = input("\nSelect a fighter jet from the list : ")
        pc_secim = pc_ucaklari[random.randrange(0,3)]
-       print("Bilgisayarin secimi : {}".format(pc_secim))
+       print("Computer selection : {}".format(pc_secim))
        karsilastirma(k_secim,pc_secim) 
        
-    #Guclu ucagi tahmin etme oyunu 
+    #Guess the most powerful fighter jet 
     if secim == "3":
         k_skor = 0
         c_soru = 0
         while True:
 
             if c_soru == 0:
-                print("---------------------------------------------------------------------------------------------\nGuclu ucagi tahmin etme oyunu \n") 
-            z_secim = input("Zorluk seviyesi seciniz. Kolay(K) ,Orta(O) ,Zor(Z). \n(Cikis yapmak icin farkli bir deger giriniz) : ")
-            if z_secim != "K"  and z_secim != "O" and z_secim != "Z":
-                print("Cikis yapiliyor...\n--------------------------------------------------------------------------------------------\n")
+                print("---------------------------------------------------------------------------------------------\nGuess the most powerful fighter jet \n") 
+            z_secim = input("Select difficulty level. Easy(E) ,Medium(M) ,Hard(H). \n(Enter a different value to exit) : ")
+            if z_secim != "E"  and z_secim != "M" and z_secim != "H":
+                print("Exiting...\n--------------------------------------------------------------------------------------------\n")
                 break
             
             s_liste = []
             
             while True:
-              s_secim = int(input("Liste uzunlugunu seciniz. (min 4 ,maks 12) : "))
+              s_secim = int(input("Select the list length. (min 4 ,maks 12) : "))
               if s_secim > 3 and s_secim < 13:
                   break
               else:
-                  print("\nYanlis deger girdiniz! Araligin icinden bir deger seciniz. \n")
+                  print("\nYou entered a wrong value! Select a value from the range. \n")
               
-            if z_secim == "K":
+            if z_secim == "E":
                 listek = [nesil2 ,nesil4]
                 tum_elemanlar1 = []
                 for listeq in listek:
                    tum_elemanlar1.extend(listeq)
 
 
-            elif z_secim == "O":  
+            elif z_secim == "M":  
                 listeo = [nesil3 ,nesil4]
                 tum_elemanlar1 = []
                 for listeq in listeo:
                    tum_elemanlar1.extend(listeq)
 
 
-            elif z_secim == "Z": 
+            elif z_secim == "H": 
                 listez = [nesil1 ,nesil2]
                 tum_elemanlar1 = []
                 for listeq in listez:
                    tum_elemanlar1.extend(listeq)
 
             else:
-                print("Hatali deger girdiniz!")
+                print("You entered a wrong value!")
                 
                 
             random.shuffle(tum_elemanlar1)
             s_liste = tum_elemanlar1[:s_secim-1]
-            if z_secim == "K":
+            if z_secim == "E":
                 s_liste.append(nesil5[random.randrange(0,len(nesil5))])
 
-            elif z_secim == "O":
+            elif z_secim == "M":
                 s_liste.append(nesil4_5[random.randrange(0,len(nesil4_5))])
         
-            elif z_secim == "Z":
+            elif z_secim == "H":
                 s_liste.append(nesil3[random.randrange(0,len(nesil3))])
         
 
             random.shuffle(s_liste)
             print("\n")
             print(s_liste)    
-            s_ucak = input("Secilen ucak :   ")
+            s_ucak = input("Selected fighter jet :   ")
             if s_ucak not in s_liste:
-                print("\nHatali deger girdiniz! \n \nSkorunuz: {} / Yanitladiginiz soru: {} <<\n---------------------------------------------------------------------------------------------".format(k_skor,c_soru))
+                print("\nYou entered a wrong value! \n \nYour score: {} / The question you answered: {} <<\n---------------------------------------------------------------------------------------------".format(k_skor,c_soru))
                 break
             
             s_ucakn = next((nesiller[nesil] for nesil in nesiller if s_ucak in nesil), None)
@@ -203,16 +203,16 @@ while True:
                 c += 1
     
             if s_ucakn > cevap:
-               print(">> Dogru secim. <<\n")
-               if z_secim == "K":
+               print(">> The right choice. <<\n")
+               if z_secim == "E":
                    k_skor += 1
                    c_soru += 1
                      
-               if z_secim == "O":
+               if z_secim == "M":
                    k_skor += 2
                    c_soru += 1
                     
-               if z_secim == "Z":
+               if z_secim == "H":
                    k_skor += 3
                    c_soru += 1
                    
@@ -226,14 +226,14 @@ while True:
                    k_skor += 5
                     
             else:
-                print("\n>> Yanlis secim. << \n \nSkorunuz: {} / Yanitladiginiz soru: {} ".format(k_skor,c_soru))
+                print("\n>> Wrong choice. << \n \nYour score: {} / The question you answered: {} ".format(k_skor,c_soru))
                 k_skor = 0
                 c_soru = 0
 
-    #dongude kalabilmesi icin secim yapilir
-    secim = input("\n>> Farkli bir karsilastirma icin       'ENTER' ;\n>> Rastgele karsilastirma yapmak icin    '1' ;\n>> Pc ile vs icin                        '2' ;\n>> Guclu ucagi tahmin etme oyunu icin    '3' giriniz.\nSeciminiz : ")
+    #a choice is made to keep it in the loop
+    secim = input("\n>> To make a different comparison      'ENTER' ;\n>> To make random comparisons            '1' ;\n>> For comparison with PC                '2' ;\n>> Guess the most powerful fighter jet   '3' enter.\nYour choice : ")
     if secim == "":
-            print("\n\n\n---------------------------------------------------------------------------------------------\nDevam ediliyor..\n\nUcaklar;")
+            print("\n\n\n---------------------------------------------------------------------------------------------\nContinued..\n\nFighter jets;")
             eleman_sayisi = 0
             for eleman in tum_elemanlar:
                 print(eleman, end='  /  ')
