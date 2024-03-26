@@ -98,17 +98,17 @@ while True:
 
        if property == "cost" or property == "rcs" or property == "fcph" or property == "fuele":
            if plane1_value > plane2_value:
-             print(f"{c2f1} is better than {c2f2} in terms of {choice2}.")
+             print(f"--> {c2f1} is better than {c2f2} in terms of {choice2}. <--")
            else:
-              print(f"{c2f2} is better than {c2f1} in terms of {choice2}.")
+              print(f"--> {c2f2} is better than {c2f1} in terms of {choice2}. <--")
 
        else:
            if plane1_value > plane2_value:
-                print(f"{c2f1} is better than {c2f2} in terms of {choice2}.")
+                print(f"--> {c2f1} is better than {c2f2} in terms of {choice2}. <--")
            elif plane1_value < plane2_value:
-                print(f"{c2f2} is better than {c2f1} in terms of {choice2}.")
+                print(f"--> {c2f2} is better than {c2f1} in terms of {choice2}. <--")
            else:
-                print(f"{c2f1} and {c2f1} are equal in terms of {choice2}.")
+                print(f"--> {c2f1} and {c2f1} are equal in terms of {choice2}. <--")
        
 
 
@@ -133,17 +133,17 @@ while True:
 
        if property == "cost" or property == "rcs" or property == "fcph" or property == "fuele":
            if plane1_value > plane2_value:
-             print(f"{c3f1} is better than {c3f2} in terms of {choice3}.")
+             print(f"--> {c3f1} is better than {c3f2} in terms of {choice3}. <--")
            else:
-              print(f"{c3f2} is better than {c3f1} in terms of {choice3}.")
+              print(f"--> {c3f2} is better than {c3f1} in terms of {choice3}. <--")
 
        else:
            if plane1_value > plane2_value:
-                print(f"{c3f1} is better than {c3f2} in terms of {choice3}.")
+                print(f"--> {c3f1} is better than {c3f2} in terms of {choice3}. <--")
            elif plane1_value < plane2_value:
-                print(f"{c3f2} is better than {c3f1} in terms of {choice3}.")
+                print(f"--> {c3f2} is better than {c3f1} in terms of {choice3}. <--")
            else:
-                print(f"{c3f1} and {c3f1} are equal in terms of {choice3}.")
+                print(f"--> {c3f1} and {c3f1} are equal in terms of {choice3}. <--")
    
     else:
        print("\nYou entered a wrong value!")
