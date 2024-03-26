@@ -3,4 +3,5 @@ aircraft list will be updated
 
                                                               
 
-![Screenshot_216](https://github.com/baykalfurkan/dogfight_comparison/assets/120893520/806dccc3-5781-42c1-935c-ce3870daf9cc)
+![Screenshot_218](https://github.com/baykalfurkan/dogfight_comparison/assets/120893520/b7a828a6-1604-4e33-b4d4-5eb19d772c43)
+
