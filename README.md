@@ -1,5 +1,6 @@
 # dogfight_comparison
-aircraft list will be updated
+- open the exe file in the "dist" folder to run the code                          
+- aircraft list will be updated
 
                                                               
 
