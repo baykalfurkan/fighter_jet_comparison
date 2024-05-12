@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 class MFighter():
@@ -63,11 +62,48 @@ planes = {
 "su27" : MFighter(80, 8.4, 7.8, 8, 9.4, 1.05, 2, 0.26, 50000000, 'Russia', 87, 5, 27.3, 21600),             #SUKHOI SU-27
 "mirage" : MFighter(68, 6.5, 6.9, 7.4, 7.1, 0.92, 2.20, 1.05, 28000000, 'NATO', 47, 2.5, 21, 8280),         #MIRAGE 2000E
 
+
 "p38" : WFighter('USA', 'Heavy Fighter', 10050, 596, 54, 0.174, 0.298, 4750, 9888, 1725, 713, 0.58, 2092, 44000),      #P-38 Lightning
 "fw190" : WFighter('Germany', 'Fighter', 20000, 671, 45, 0.347, 0.532, 2950, 4899, 1700, 657, 0.54, 805, 37500),       #Fw 190 Wurger
 "yak3" : WFighter('USSR', 'Fighter', 4900, 516, 100, 0.412, 0.616, 3645, 3157, 1300, 665, 0.54, 661, 35040),           #Yakovlev Yak-3
-"spitfire" : WFighter('UK', 'Fighter', 20350, 450, 72, 0.532, 0.687, 3650, 3856, 2050, 721, 0.59, 1770, 43450)        #Supermarine Spitfire
+"spitfire" : WFighter('UK', 'Fighter', 20350, 450, 72, 0.532, 0.687, 3650, 3856, 2050, 721, 0.59, 1770, 43450),        #Supermarine Spitfire
+"p40" : WFighter('USA', 'Fighter', 13800, 497 ,97 ,0.283, 0.401, 2500, 4057, 1150, 579, 0.47, 1046, 29000),            #P-40 Warhawk
+"p51" : WFighter('USA', 'Fighter-Bomber', 16000, 633 ,59 ,0.316, 0.497, 3200, 5443, 1720, 703, 0.57, 2655, 42000),     #P-51 Mustang
+"bf109" : WFighter('USA', 'MR Fighter', 34000, 533, 58, 0.426, 0.591, 3400, 2767, 1180, 639, 0.52, 1094, 11127),       #Messerschmitt Bf 109
+"p39" : WFighter('USA', 'Fighter', 9600, 420, 75, 0.313, 0.490, 3750, 3833, 1200, 605, 0.49, 845, 31000)               #P-39 Airacobra
 
+}
+
+
+modernPlanes = {
+    "f35": "F-35 LIGHTNING 2",
+    "f16ef": "F-16E/F BLOCK 60",
+    "f22": "F-22 RAPTOR",
+    "fa18ef": "F/A-18E/F SUPER HORNET",
+    "rafale": "Dassault Rafale",
+    "su30": "SUKHOI SU-30",
+    "gripen": "Saab JAS-39 Gripen",
+    "j10": "CHENGDU J-10",
+    "su35": "SUKHOI SU-35",
+    "f15e": "F-15E STRIKE EAGLE",
+    "su57": "SUKHOI PAK FA",
+    "mig35": "MIG-35 FULCRUM F",
+    "su30mki": "SUKHOI SU-30MKI",
+    "su27": "SUKHOI SU-27",
+    "mirage": "MIRAGE 2000E"
+}
+
+
+ww2Planes = {
+    "p38": "P-38 Lightning",
+    "fw190": "Fw 190 Wurger",
+    "yak3": "Yakovlev Yak-3",
+    "spitfire": "Supermarine Spitfire",
+    "p40": "P-40 Warhawk",
+    "p51": "P-51 Mustang",
+    "bf109": "Messerschmitt Bf 109",
+    "p39": "P-39 Airacobra"
+    
 }
 
 print("Welcome to dogfight comparison software.")
@@ -78,7 +114,8 @@ while True:
 
     if choice == 'modern':
       
-       print("\n-F-35 LIGHTNING 2 (f35)\n-F-16E/F BLOCK 60 (f16ef)\n-F-22 RAPTOR (f22)\n-F/A-18E/F SUPER HORNET (fa18ef)\n-Dassault Rafale (rafale)\n-SUKHOI SU-30 (su30)\n-Saab JAS-39 Gripen (gripen)\n-CHENGDU J-10 (j10)\n-SUKHOI SU-35 (su35)\n-F-15E STRIKE EAGLE (f15e)\n-SUKHOI PAK FA (su57)\n-MIG-35 FULCRUM F (mig35)\n-SUKHOI SU-30MKI (su30mki)\n-SUKHOI SU-27 (su27)\n-MIRAGE 2000E (mirage)")
+       for kod, ad in modernPlanes.items():
+          print(f"-{ad} ({kod})")
        c2f1 = input("\nFirst fighter jet: ")
        c2f2 = input("Second fighter jet: ")
        choice2 = input("\n-BVR Rating (bvr)\n-Armament rating (arm)\n-Technology rating (tech)\n-Avionics rating (avio)\n-Maneuverability rating (manev)\n-Thrust/Weight (tw)\n-speed _mach_\n-Fuel Economy _km/l_ (fuele)\n-cost _$_\n-Dogfight Rating (rate)\n-Radar Cross Section max _m^2_ (rcs)\n-power _k lbf_ \n-Flight Cost Per Hour _$_ (fcph)\n\nWhich feature do you want to compare: ")
@@ -114,7 +151,8 @@ while True:
 
     elif choice == 'ww2':
    
-       print("\n-P-38 Lightning (p38)\n-Fw 190 Wurger (fw190)\n-Yakovlev Yak-3 (yak3)\n-Supermarine Spitfire (spitfire)")
+       for kod, ad in ww2Planes.items():
+          print(f"-{ad} ({kod})")
        c3f1 = input("\nFirst fighter: ")
        c3f2 = input("Second fighter: ")
        choice3 = str(input("\n-Number built (number)\n-Turn Radius _Full flaps_ (tradius)\n-Speed/Accele./Agility pts (saa)\n-Min Power/mass _hp/kg_ (minpm)\n-Max Power/mass _hp/kg_ (maxpm)\n-Climb Rate _ft/min_ (crate)\n-Max. Take Off _kg_ (maxtoff)\n-Engine Power _hp_ (epower)\n-Max Speed _kmh_ (mspeedkm)\n-Max Speed _mach_ (msppedm)\n-Max Range _km_ (mrange)\n-Service Ceiling _ft_ (sceiling)\n\nWhich feature do you want to compare: "))
