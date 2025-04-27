@@ -37,25 +37,23 @@ def karsilastirma (ucak1,ucak2):
         ucak2n = next((nesiller[nesil] for nesil in nesiller if ucak2 in nesil), None)
          
         if ucak1n == None or ucak2n == None:
-            print("\nYou entered a wrong value! \n--------------------------------------------------")        
+            print("\nYou entered a wrong value! \n"+ 50*"-")        
         elif ucak1n == ucak2n:
-           print("\n>> Result: The characteristics of the planes are similar, it depends on the pilot << \n---------------------------------------------------------------------------------------------")
+           print("\n>> Result: The characteristics of the planes are similar, it depends on the pilot << \n"+ 95*"-")
         elif ucak1n > ucak2n:
            if secim == "2":
                print("\n>> You won! ")
-           print("\n>> Result: {} wins <<\n---------------------------------------------------------------------------------------------".format(ucak1))
+           print("\n>> Result: {} wins <<\n".format(ucak1)+ 95*"-")
         elif ucak1n < ucak2n:
            if secim == "2":
                print("\n>> You lost! ")
-           print("\n>> Result: {} wins << \n---------------------------------------------------------------------------------------------".format(ucak2))
+           print("\n>> Result: {} wins << \n".format(ucak2)+ 95*"-")
         else:
-            print("\nYou entered a wrong value! \n--------------------------------------------------")    
-
+            print("\nYou entered a wrong value! \n"+ 50*"-")    
 
 #Loop
 secim = 0
 while True:
-    
     nesiller = {
     tuple(nesil5): 5,
     tuple(nesil4_5): 4.5,
@@ -65,7 +63,6 @@ while True:
     tuple(nesil1): 1
     }
     
-
     #The process of assigning the generation of the aircraft selected by the user
     if secim == 0 or secim =="":
         print("\n")
@@ -73,10 +70,9 @@ while True:
         ucak2 = str(input("Second fighter jet: "))
         karsilastirma(ucak1,ucak2)
                  
-
     #Randomly select and compare fighter jets
     if secim == "1":
-        print("---------------------------------------------------------------------------------------------\nRandomly selected..\n")
+        print(95*"-"+"\nRandomly selected..\n")
         b = random.randrange(0,6)      
         c = random.randrange(0,6) 
         d = random.randrange(0,17) 
@@ -117,7 +113,7 @@ while True:
            pc_ucaklari[f] = x     
            f += 1
          
-       print("---------------------------------------------------------------------------------------------\n")    
+       print(95*"-"+"\n")    
        print("The list you will choose from : {}".format(k_ucaklari))
        print("\nList for the computer to choose from : {}".format(pc_ucaklari))
        k_secim = input("\nSelect a fighter jet from the list : ")
@@ -132,20 +128,24 @@ while True:
         while True:
 
             if c_soru == 0:
-                print("---------------------------------------------------------------------------------------------\nGuess the most powerful fighter jet \n") 
+                print(95*"-"+"\nGuess the most powerful fighter jet \n") 
             z_secim = input("Select difficulty level. Easy(E) ,Medium(M) ,Hard(H). \n(Enter a different value to exit) : ")
             if z_secim != "E"  and z_secim != "M" and z_secim != "H":
-                print("Exiting...\n--------------------------------------------------------------------------------------------\n")
+                print("Exiting...\n"+95*"-"+"\n")
                 break
             
             s_liste = []
             
             while True:
-              s_secim = int(input("Select the list length. (min 4 ,maks 12) : "))
-              if s_secim > 3 and s_secim < 13:
-                  break
-              else:
-                  print("\nYou entered a wrong value! Select a value from the range. \n")
+              try:
+                s_secim = int(input("Select the list length. (min 4, max 12) : "))
+                if 4 <= s_secim <= 12:
+                    break
+                else:
+                    print("\nError: Number must be between 4-12. Try again.")
+              except ValueError:
+                    print("\nError: Please enter only numbers (4-12). \n")
+  
               
             if z_secim == "E":
                 listek = [nesil2 ,nesil4]
@@ -153,13 +153,11 @@ while True:
                 for listeq in listek:
                    tum_elemanlar1.extend(listeq)
 
-
             elif z_secim == "M":  
                 listeo = [nesil3 ,nesil4]
                 tum_elemanlar1 = []
                 for listeq in listeo:
                    tum_elemanlar1.extend(listeq)
-
 
             elif z_secim == "H": 
                 listez = [nesil1 ,nesil2]
@@ -169,8 +167,7 @@ while True:
 
             else:
                 print("You entered a wrong value!")
-                
-                
+                                
             random.shuffle(tum_elemanlar1)
             s_liste = tum_elemanlar1[:s_secim-1]
             if z_secim == "E":
@@ -182,13 +179,12 @@ while True:
             elif z_secim == "H":
                 s_liste.append(nesil3[random.randrange(0,len(nesil3))])
         
-
             random.shuffle(s_liste)
             print("\n")
             print(s_liste)    
             s_ucak = input("Selected fighter jet :   ")
             if s_ucak not in s_liste:
-                print("\nYou entered a wrong value! \n \nYour score: {} / The question you answered: {} <<\n---------------------------------------------------------------------------------------------".format(k_skor,c_soru))
+                print("\nYou entered a wrong value! \n \nYour score: {} \nThe question you answered: {} <<".format(k_skor,c_soru)+"\n"+84*"-")
                 break
             
             s_ucakn = next((nesiller[nesil] for nesil in nesiller if s_ucak in nesil), None)
@@ -200,14 +196,14 @@ while True:
 
                 if s_ucakn < b:
                     cevap = b
-                c += 1
-    
+                c += 1 
+
             if s_ucakn > cevap:
                print(">> The right choice. <<\n")
                if z_secim == "E":
                    k_skor += 1
                    c_soru += 1
-                     
+
                if z_secim == "M":
                    k_skor += 2
                    c_soru += 1
@@ -226,14 +222,14 @@ while True:
                    k_skor += 5
                     
             else:
-                print("\n>> Wrong choice. << \n \nYour score: {} / The question you answered: {} ".format(k_skor,c_soru))
+                print("\n>> Wrong choice. << \n \nYour score: {} \nThe question you answered: {} ".format(k_skor,c_soru))
                 k_skor = 0
                 c_soru = 0
 
     #a choice is made to keep it in the loop
     secim = input("\n>> To make a different comparison      'ENTER' ;\n>> To make random comparisons            '1' ;\n>> For comparison with PC                '2' ;\n>> Guess the most powerful fighter jet   '3' enter.\nYour choice : ")
     if secim == "":
-            print("\n\n\n---------------------------------------------------------------------------------------------\nContinued..\n\nFighter jets;")
+            print("\n\n\n"+84*"-"+"\nContinued..\n\nFighter jets;")
             eleman_sayisi = 0
             for eleman in tum_elemanlar:
                 print(eleman, end='  /  ')
